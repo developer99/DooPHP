@@ -5,7 +5,7 @@
  * Access via Singleton, eg. Doo::conf()->BASE_PATH;
  */
 error_reporting(E_ALL | E_STRICT);
-date_default_timezone_set('Asia/Kuala_Lumpur');
+date_default_timezone_set('America/New_York');
 
 /**
  * for benchmark purpose, call Doo::benchmark() for time used.
@@ -13,10 +13,27 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 //$config['START_TIME'] = microtime(true);
 
 
-//For framework use. Must be defined. Use full absolute paths and end them with '/'      eg. /var/www/project/
-$config['SITE_PATH'] = realpath('..').'/app/';
-//$config['PROTECTED_FOLDER'] = 'protected/';
-$config['BASE_PATH'] = realpath('..').'/dooframework/';
+// For framework use. Must be defined. 
+// Use full absolute paths and end them with '/'      
+// eg. /var/www/project/
+
+// This should point to the folder where the Doo Framework 
+// is located. It can live outside your public_html folder.
+// This is relative to the site path (index.php).
+$config['BASE_PATH'] = realpath('../../') . '/dooframework/';
+
+// This should point to the folder where the application's 
+// main (bootstrap) index.php file is located. Get the real path.
+$config['SITE_PATH'] = realpath('./') . '/';
+
+
+// This should point to the folder where the 
+// application folders (ie. model, view, controller) are located.
+$config['PROTECTED_FOLDER'] = '../../DPvMP7kUZj8/';
+
+
+
+
 
 //for production mode use 'prod'
 $config['APP_MODE'] = 'dev';
